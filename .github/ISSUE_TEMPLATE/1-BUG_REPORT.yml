@@ -1,63 +1,44 @@
-name: "🐛 Bug Report"
+name: "Bug Report"
 description: Create a new ticket for a bug.
-title: "🐛 [BUG] - <title>"
 labels: [
-  "bug"
+  "Bug"
 ]
 body:
   - type: textarea
     id: description
     attributes:
       label: "Description"
-      description: Please enter an explicit description of your issue
-      placeholder: Short and explicit description of your incident...
+      description: Please enter a detailed description of the bug.  Use the template below as necessary
+      value: |
+        Branch Name: eg. Dev, Main or https://github.com/USERNAME/REPO-NAME
+
+        Reproduction Steps:
+          1. Go to ''...'
+          2. Click on '...'
+          3. Scroll to '...'
+          4. See Error
+
+        If applicable, screenshots can be attached to better explain the problem:
+        ![LINK-ALT-TEXT](LINK.png)
+
+        Copy and Paste any relevant Logs:
+
+        > Paste Logs here
+
+        Utilize the dropdown below, or describe the impacted environment:
+
+        > How/Where are you building.
+        
+      render: bash  
     validations:
       required: true
-  - type: input
-    id: reprod-url
-    attributes:
-      label: "Branch Name"
-      description: Please enter the branch / link to fork
-      placeholder: ex. 'dev' or https://github.com/USERNAME/REPO-NAME
-    validations:
-      required: false
-  - type: textarea
-    id: reprod
-    attributes:
-      label: "Reproduction steps"
-      description: Please enter an explicit description of your issue
-      value: |
-        1. Go to '...'
-        2. Click on '....'
-        3. Scroll down to '....'
-        4. See error
-      render: bash
-    validations:
-      required: true
-  - type: textarea
-    id: screenshot
-    attributes:
-      label: "Screenshots"
-      description: If applicable, add screenshots to help explain your problem.
-      value: |
-        ![DESCRIPTION](LINK.png)
-      render: bash
-    validations:
-      required: false
-  - type: textarea
-    id: logs
-    attributes:
-      label: "Logs"
-      description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
-      render: bash
-    validations:
-      required: false
+  
   - type: dropdown
     id: os
     attributes:
       label: "OS"
       description: What is the impacted environment ?
-      multiple: true
+      multiple: false
       options:
         - Windows (Direct Clone)
         - Windows (Shared Folders)
@@ -66,4 +47,7 @@ body:
         - Mac (Direct Clone)
         - Mac (Shared Folders)
     validations:
-      required: true
+      required: false
+  - type: markdown
+    attributes:
+      value: "Optional: Please apply any labels or types as necessary - leave blank for unknown."
