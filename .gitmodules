@@ -160,3 +160,7 @@
 	path = components/mgr
 	url = https://github.com/nasa-itc/mgr.git
 	branch = main
+[submodule "sims/simulith"]
+	path = sims/simulith
+	url = https://github.com/jlucas9/simulith.git
+	branch = main
