@@ -31,8 +31,13 @@ endif(CXX_11)
 set(CMAKE_INSTALL_PREFIX ${CMAKE_BINARY_DIR})
 include(MissionSettings.cmake)
 
+# Find ZeroMQ dependency for Simulith
+find_package(PkgConfig REQUIRED)
+pkg_check_modules(ZeroMQ REQUIRED libzmq)
+
 # NOS3 Sim Core
 add_subdirectory(sim_common)
+add_subdirectory(simulith)
 add_subdirectory(nos_time_driver)
 add_subdirectory(sim_terminal)
 add_subdirectory(truth_42_sim)
