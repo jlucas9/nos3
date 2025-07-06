@@ -36,20 +36,21 @@ find_package(PkgConfig REQUIRED)
 pkg_check_modules(ZeroMQ REQUIRED libzmq)
 
 # NOS3 Sim Core
-add_subdirectory(sim_common)
+#add_subdirectory(sim_common)
 add_subdirectory(simulith)
-add_subdirectory(nos_time_driver)
-add_subdirectory(sim_terminal)
-add_subdirectory(truth_42_sim)
+#add_subdirectory(nos_time_driver)
+#add_subdirectory(sim_terminal)
+#add_subdirectory(truth_42_sim)
+add_subdirectory(sample_sim)
 
 # Add Component Sims
-FILE(GLOB _ALL_FILES ${CMAKE_CURRENT_SOURCE_DIR}/../components/*)
-FOREACH(_FILE ${_ALL_FILES})
-  IF(EXISTS ${_FILE}/sim/CMakeLists.txt)
-    get_filename_component(SIM_NAME ${_FILE} NAME)
-    add_subdirectory(${_FILE}/sim ./${SIM_NAME})
-  ENDIF()
-ENDFOREACH()
+#FILE(GLOB _ALL_FILES ${CMAKE_CURRENT_SOURCE_DIR}/../components/*)
+#FOREACH(_FILE ${_ALL_FILES})
+#  IF(EXISTS ${_FILE}/sim/CMakeLists.txt)
+#    get_filename_component(SIM_NAME ${_FILE} NAME)
+#    add_subdirectory(${_FILE}/sim ./${SIM_NAME})
+#  ENDIF()
+#ENDFOREACH()
 
 # Install configuration files to bin
 set(sim_cfg

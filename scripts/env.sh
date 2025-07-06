@@ -12,9 +12,9 @@ SIM_DIR=$BASE_DIR/sims/build
 SIM_BIN=$SIM_DIR/bin
 COMPONENT_DIR=$SCRIPT_DIR/../components
 
-if [ -d $SIM_DIR/bin ]; then
-    SIMS=$(ls $SIM_BIN/nos3*simulator) 
-fi 
+#if [ -d $SIM_DIR/bin ]; then
+#    SIMS=$(ls $SIM_BIN/nos3*simulator) 
+#fi 
 
 DATE=$(date "+%Y%m%d%H%M")
 NUM_CPUS="$( nproc )"
@@ -42,13 +42,13 @@ INFLUXDB_ADMIN_PASSWORD=admin_password
 #    DNETWORK="docker network"
 #else
     DCALL="docker"
-    DFLAGS="docker run --rm -it -v /etc/passwd:/etc/passwd:ro -v /etc/group:/etc/group:ro -u $(id -u $(stat -c '%U' $SCRIPT_DIR/env.sh)):$(getent group $(stat -c '%G' $SCRIPT_DIR/env.sh) | cut -d: -f3)"
+    DFLAGS="docker run --rm -it -v /etc/passwd:/etc/passwd:ro -v /etc/group:/etc/group:ro -v /tmp:/tmp --ipc=host -u $(id -u $(stat -c '%U' $SCRIPT_DIR/env.sh)):$(getent group $(stat -c '%G' $SCRIPT_DIR/env.sh) | cut -d: -f3) "
     DFLAGS_CPUS="$DFLAGS --cpus=$NUM_CPUS"
     DCREATE="docker create --rm -it"
     DNETWORK="docker network"
 #fi
 
-DBOX="ivvitc/nos3-64:dev"
+DBOX="ivvitc/nos3-64:simulith"
 
 # Debugging
 #echo "Script directory = " $SCRIPT_DIR
