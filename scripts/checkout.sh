@@ -30,7 +30,7 @@ echo ""
 # Debugging
 # Replace `--tab` with `--window-with-profile=KeepOpen` once you've created this gnome-terminal profile manually
 echo "Simulith..."
-gnome-terminal --window-with-profile=KeepOpen --title="Simulith" -- $DFLAGS -v $SIM_DIR:$SIM_DIR --name $SC_NUM"-simulith" -h simulith --network=$SC_NETNAME -w $SIM_BIN/../simulith $DBOX ./simulith_server_standalone 2>&1 | tee simulith.log
+gnome-terminal --tab --title="Simulith" -- $DFLAGS -v $SIM_DIR:$SIM_DIR --name $SC_NUM"-simulith" -h simulith --network=$SC_NETNAME -w $SIM_BIN/../simulith $DBOX ./simulith_server_standalone 2>&1 | tee simulith.log
 echo ""
 
 
@@ -160,8 +160,8 @@ echo "Checkout..."
 ##
 ## Sample
 ##
-gnome-terminal --window-with-profile=KeepOpen --title="Sample Sim" -- $DFLAGS -v $SIM_DIR:$SIM_DIR --name $SC_NUM"_sample_sim" --network=$SC_NETNAME -w $SIM_DIR/sample_sim $DBOX ./sample_sim
-gnome-terminal --window-with-profile=KeepOpen --title="Sample Checkout" -- $DFLAGS -v $BASE_DIR:$BASE_DIR --name $SC_NUM"_sample_checkout" --network=$SC_NETNAME -w $BASE_DIR $DBOX ./components/sample/fsw/standalone/build/sample_checkout
+gnome-terminal --title="Sample Sim" -- $DFLAGS -v $SIM_DIR:$SIM_DIR --name $SC_NUM"_sample_sim" --network=$SC_NETNAME -w $SIM_DIR/sample_sim $DBOX ./sample_sim
+gnome-terminal --title="Sample Checkout" -- $DFLAGS -v $BASE_DIR:$BASE_DIR --name $SC_NUM"_sample_checkout" --network=$SC_NETNAME -w $BASE_DIR $DBOX ./components/sample/fsw/standalone/build/sample_checkout
 
 
 ##

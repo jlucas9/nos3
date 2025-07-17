@@ -24,7 +24,6 @@
 typedef struct {
     uint16_t header;     // 0xDEAD
     uint8_t cmd_id;      // Command identifier
-    uint8_t padding;     // For alignment
     uint32_t payload;    // Command payload (used for set config)
     uint16_t trailer;    // 0xBEEF
 } __attribute__((packed)) sample_cmd_t;
@@ -52,7 +51,7 @@ typedef struct {
 typedef struct {
     // Communication handles
     uint8_t uart_port;
-    uint8_t uart_handle;
+    uint32_t uart_handle;
     void* time_handle;
 
     // Simulator state
